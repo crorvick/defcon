@@ -19,14 +19,11 @@ openfile:
 	/* store off the returned fd */
 	movl	%eax, %edi
 
-	/* make room for a 1 byte buffer */
-	push	%eax
-	movl	%esp, %esi
-
 	/* setup the 3rd and 4th args, they don't change */
 	xor	%edx, %edx
 	inc	%edx
-	movl	%esi, %ecx
+	push	%eax
+	movl	%esp, %ecx
 
 	jmp	read
 
